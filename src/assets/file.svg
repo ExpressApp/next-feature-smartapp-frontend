@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 22 26"
+>
+  <g fill="none" fillRule="evenodd" transform="translate(-1)">
+    <path
+      fill="#595959"
+      d="M5 0C3.73 0 2.44 1.225 2.5 2.407V22.63c-.06 1.784 1.23 3.007 2.5 2.89h15c1.71.117 3-1.106 3-2.89V6.26L16 0H5zm0 24.556c-.298-.117-1.298-.59-1.5-1.445V2.41C3.702 2.148 4.702 1.2 5 .963h10.5v3.852c.01 1.467.903 2.315 2 1.926H22v15.89c-.262.864-.76 1.81-2 1.928H5z"
+    />
+    <rect width="18.5" height="9.148" x="1" y="12.519" fill="#5C5C5C" rx="2" />
+    <text fill="#FFF" fontSize="5.5" fontWeight="600">
+      <tspan x="4.302" y="19">
+        FILE
+      </tspan>
+    </text>
+  </g>
+</svg>

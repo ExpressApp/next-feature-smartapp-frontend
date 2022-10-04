@@ -1,0 +1,32 @@
+@import "src/constants";
+
+.feature-page__notifications {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: $grey;
+
+  .notifications__item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid $light-grey;
+    font-size: 14px;
+    overflow-wrap: break-word;
+  }
+
+  .notifications__clear-button {
+    align-self: center;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $blue;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+}

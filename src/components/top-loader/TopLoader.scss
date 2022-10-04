@@ -1,0 +1,43 @@
+$topLoaderBg: rgb(224, 224, 224);
+$topLoaderBarBg: #7eb7eb;
+
+.top-loader {
+  position: relative;
+  display: flex;
+  height: 3px;
+  margin-bottom: -3px;
+
+  &--enabled {
+    background: $topLoaderBg;
+  }
+
+  &__bar {
+    background: $topLoaderBarBg;
+    box-shadow: inset 0 0 1px 0 rgba(0,0,0,0.3);
+
+    &--start {
+      animation-name: loader-animation;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    &--stop {
+      width: 100%;
+    }
+
+    &--finish {
+      opacity: 0;
+    }
+  }
+
+  @keyframes loader-animation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+}
+

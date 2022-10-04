@@ -1,0 +1,19 @@
+@import "../../constants";
+
+.json-viewer .jsoneditor-menu {
+  background: $grey;
+  border-bottom: 1px solid $light-grey;
+}
+
+.jsoneditor {
+  border: none;
+}
+
+.jsoneditor-menu > button,
+.jsoneditor-menu > .jsoneditor-modes > button {
+  color: white;
+}
+
+.jsoneditor-menu > .copy-to-clipboard {
+  background-image: none;
+}

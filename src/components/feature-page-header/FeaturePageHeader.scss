@@ -1,0 +1,21 @@
+@import "src/constants";
+
+.feature-page__header {
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+
+  .btn--arrow-left {
+    svg {
+      color: $blue;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+}

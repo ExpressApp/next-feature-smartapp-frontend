@@ -1,0 +1,180 @@
+@import "../../constants";
+
+.title {
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.feature-page {
+  padding: 10px 20px;
+
+  .attachments {
+    padding-top: 12px;
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+
+      .btn--remove-attachment {
+        color: $grey;
+
+        &:hover {
+          color: $blue;
+          cursor: pointer;
+        }
+
+        &:active {
+          color: $light-blue;
+        }
+      }
+    }
+  }
+
+  &__form {
+    .btn--clear-input {
+      position: absolute;
+      transform: translate(-150%, 102%);
+      color: $grey;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__info {
+    padding-top: 4px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 16px;
+  }
+
+  .input {
+    margin: 10px 0;
+    box-sizing: border-box;
+
+    &:focus {
+      border: 1px solid $blue;
+      outline: none;
+      box-shadow: 0 0 0 3px $light-blue;
+    }
+
+    &--error {
+      border: 1px solid red;
+      box-shadow: 0 0 0 3px pink;
+    }
+  }
+
+  .input,
+  .btn--attach {
+    padding: 12px 20px;
+    width: 100%;
+    border: 1px solid $light-grey;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+
+  .btn--attach {
+    margin-top: 12px;
+    background: white;
+    color: $grey;
+    text-transform: uppercase;
+    border-color: $grey;
+
+    &:hover {
+      border-color: $blue;
+      color: $blue;
+      cursor: pointer;
+    }
+
+    &:active {
+      border-color: $light-blue;
+      color: $light-blue;
+    }
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .btn--submit {
+      margin-top: 10px;
+      padding: 5px 20px;
+      height: 32px;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      line-height: 17px;
+      text-transform: uppercase;
+      background: $blue;
+      border: none;
+      border-radius: 3px;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+
+      &:active {
+        outline: none;
+        opacity: 0.5;
+      }
+    }
+
+    .btn--submit-disabled {
+      background: $light-grey;
+
+      &:hover {
+        opacity: 1;
+        cursor: not-allowed;
+      }
+    }
+
+    .btn--plus {
+      display: flex;
+      margin-top: 16px;
+      align-self: center;
+      color: $blue;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.response-markdown,
+.response-files,
+.response-express {
+  padding: 0 20px;
+  font-size: 14px;
+  overflow-wrap: break-word;
+}
+
+.response-files {
+  padding-bottom: 20px;
+  &__file {
+    padding: 0 10px;
+  }
+}
+
+.response-markdown-form {
+  cursor: pointer;
+}
