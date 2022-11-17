@@ -14,8 +14,13 @@ export const EXPRESS_NOTIFICATION_FEATURE = {
 
 export const OPEN_SMART_APP_META_FEATURE = {
   name: 'Open Smart App Meta',
-  method: 'open_smart_app_meta',
+  method: 'open_smart_app',
   field: 'openSmartAppMeta',
+}
+
+export const OPEN_FILE_FEATURE = {
+  name: 'Open File',
+  method: 'open_file',
 }
 
 export const SCAN_QR_FEATURE = {
@@ -97,6 +102,20 @@ export const EXPRESS_FEATURES: ExpressFeature[] = [
       id: InputId.USER_HUID,
       label: InputLabel.USER_HUID,
       type: InputType.UUID,
+    }],
+  },
+  {
+    method: ExpressFeatureMethod.OPEN_CLIENT_SETTINGS,
+    name: ExpressFeatureName.OPEN_CLIENT_SETTINGS,
+    uiElements: [],
+  },
+  {
+    method: ExpressFeatureMethod.GET_CHATS,
+    name: ExpressFeatureName.GET_CHATS,
+    uiElements: [{
+      id: InputId.FILTER,
+      label: InputLabel.FILTER,
+      type: InputType.INPUT_TEXT,
     }],
   },
 ]
