@@ -10,6 +10,7 @@ import './index.scss'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore()}>
+      {/* @ts-ignore */}
       <ConnectedRouter history={history}>
         <Main />
       </ConnectedRouter>

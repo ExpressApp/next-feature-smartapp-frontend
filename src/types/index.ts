@@ -21,14 +21,18 @@ export enum ExpressFeatureMethod {
   SEND_MESSAGE = 'send_message',
   GET_CONTACT = 'get_contact',
   OPEN_SMARTAPP = 'open_smart_app',
+  OPEN_CLIENT_SETTINGS = 'open_client_settings',
+  GET_CHATS = 'get_chats',
 }
 
 export enum ExpressFeatureName {
-  ADD_CONTACT = 'Add contact',
-  CREATE_PERSONAL_CHAT = 'Create personal chat',
-  SEND_MESSAGE = 'Send message to group chat or user',
-  GET_CONTACT = 'Get contact',
+  ADD_CONTACT = 'Add Contact',
+  CREATE_PERSONAL_CHAT = 'Create Personal Chat',
+  SEND_MESSAGE = 'Send Message to Group Chat or User',
+  GET_CONTACT = 'Get Contact',
   OPEN_SMARTAPP = 'Open SmartApp',
+  OPEN_CLIENT_SETTINGS = 'Open Client Settings',
+  GET_CHATS = 'Get Chats',
 }
 
 export enum ClientEventMethod {
@@ -39,18 +43,14 @@ export enum ClientEventMethod {
 
 export interface BotEvent {
   method: BotFeatureMethod | 'menu'
-  params: {
-    [key: string]: any
-  }
+  params: any
   files?: File[]
   timeout?: number
 }
 
 export interface ExpressEvent {
   method: ExpressFeatureMethod
-  params: {
-    [key: string]: any
-  }
+  params: any
 }
 
 export interface SendMessageActionPayload {
@@ -74,6 +74,7 @@ export enum InputId {
   MESSAGE = 'message',
   GROUP_CHAT_ID = 'groupChatId',
   USER_HUID = 'userHuid',
+  FILTER = 'filter',
 }
 
 export enum InputLabel {
@@ -89,7 +90,8 @@ export enum InputLabel {
   SMARTAPP_ID = 'Smartapp ID',
   MESSAGE = 'Message',
   GROUP_CHAT_ID = 'Group chat id',
-  USER_HUID = 'User huid'
+  USER_HUID = 'User huid',
+  FILTER = 'Filter',
 }
 
 export enum InputType {

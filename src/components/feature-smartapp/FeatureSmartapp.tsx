@@ -10,6 +10,7 @@ import { ReactComponent as BotxIcon } from '../../assets/botx-icon.svg'
 import {
   EXPRESS_FEATURES,
   EXPRESS_NOTIFICATION_FEATURE,
+  OPEN_FILE_FEATURE,
   OPEN_SMART_APP_META_FEATURE,
   SCAN_QR_FEATURE,
 } from '../../constants'
@@ -18,11 +19,15 @@ import MetaPage from '../meta-page/MetaPage'
 import { getRedirectPath } from '../../redux/selectors/ui'
 import { history } from '../../redux/router'
 import { ScanQRPage } from '../scan-qr-page/ScanQRPage'
+import OpenFile from '../open-file/OpenFile'
+import { ExpressFeatureMethod } from '../../types'
+import { openClientSettings, useQuery } from '@expressms/smartapp-sdk'
 
 export default function FeatureSmartapp() {
   const dispatch = useDispatch()
   const features = useSelector(getFeaturesMenu)
   const redirectPath = useSelector(getRedirectPath)
+  const { platform } = useQuery()
 
   useEffect(() => {
     if (!features) dispatch(loadFeatures())
@@ -62,32 +67,45 @@ export default function FeatureSmartapp() {
           <Route key={`${SCAN_QR_FEATURE.method}-route`} path={`/${SCAN_QR_FEATURE.method}`}>
             <ScanQRPage />
           </Route>
+          <Route key={`${OPEN_FILE_FEATURE.method}-route`} path={`/${OPEN_FILE_FEATURE.method}`}>
+            <OpenFile />
+          </Route>
           <Route path={'/'}>
             {features?.map(item => (
               <Link className="menu-item" key={`${item.method}-link`} to={`/${item.method}`}>
                 {item.name}
               </Link>
             ))}
-            {features &&
-              EXPRESS_FEATURES.map(item => (
-                <Link className="menu-item" key={`${item.method}-link`} to={`/${item.method}`}>
-                  {item.name}
-                </Link>
-              ))}
-            {features && (
-              <Link
+            {EXPRESS_FEATURES.map(item => {
+              if (item.method === ExpressFeatureMethod.OPEN_CLIENT_SETTINGS) {
+                return (
+                  <div className="menu-item" onClick={() => {
+                    if (platform !== 'web') {
+                      openClientSettings()
+                    } else {
+                      alert('Feature is unavailable on web client')
+                    }
+                  }}>
+                    {item.name}
+                  </div>
+                )
+              } else {
+                return (
+                  <Link className="menu-item" key={`${item.method}-link`} to={`/${item.method}`}>
+                    {item.name}
+                  </Link>)}
+              }
+            )}
+            <Link
                 className="menu-item"
                 key={`${EXPRESS_NOTIFICATION_FEATURE.method}-link`}
                 to={`/${EXPRESS_NOTIFICATION_FEATURE.method}`}
               >
                 {EXPRESS_NOTIFICATION_FEATURE.name}
-              </Link>
-            )}
-            {features && (
-              <Link className="menu-item" key={`${SCAN_QR_FEATURE.method}-link`} to={`/${SCAN_QR_FEATURE.method}`}>
+            </Link>
+            <Link className="menu-item" key={`${SCAN_QR_FEATURE.method}-link`} to={`/${SCAN_QR_FEATURE.method}`}>
                 {SCAN_QR_FEATURE.name}
-              </Link>
-            )}
+            </Link>
           </Route>
         </Switch>
       </section>
